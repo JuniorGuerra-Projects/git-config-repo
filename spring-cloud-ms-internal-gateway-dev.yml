@@ -1,0 +1,37 @@
+server:
+  port: 8765
+
+spring:
+  rabbitmq:
+    password: VE3Qm-pgdG1j2XxQRbCC6mqC2CuU-dj7
+    username: uhbceumm
+    virtual-host: uhbceumm
+  zipkin:
+    rabbitmq:
+      addresses: toad.rmq.cloudamqp.com
+    sender:
+      type: rabbit
+
+  cloud:
+    gateway:
+      routes:
+      - id: route_ms-consulta
+        uri: lb://spring-cloud-ms-consulta
+        predicates:
+        - Path=/route-msconsulta/**
+        filters:
+        - StripPrefix=1
+       #enrutando ms-pago
+      - id: route_mspago
+        uri: lb://spring-cloud-ms-pago
+        predicates:
+        - Path=/ms-pago/**
+        filters:
+        - StripPrefix=1
+      #enrutando ms-demo
+      - id: route_msdemo
+        uri: lb://spring-cloud-ms-demo-reactive
+        predicates:
+        - Path=/ms-demo/**
+        filters:
+        - StripPrefix=1

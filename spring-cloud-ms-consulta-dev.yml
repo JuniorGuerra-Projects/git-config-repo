@@ -1,0 +1,17 @@
+#empresas externas
+empresa:
+  externa:
+    bsoftDeuda: http://localhost:8081
+spring:
+  rabbitmq:
+    password: VE3Qm-pgdG1j2XxQRbCC6mqC2CuU-dj7
+    username: uhbceumm
+    virtual-host: uhbceumm
+  zipkin:
+    rabbitmq:
+      addresses: toad.rmq.cloudamqp.com
+    sender:
+      type: rabbit
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
